@@ -1,14 +1,20 @@
-import './App.css';
-import Content from './content';
-import Header from './Header';
-import Footer from './Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NavigationBar from './components/NavigationBar';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Content from './components/Content';
 
 function App() {
   return (
-    <div classname="App">
-      <h1>Hello World!</h1>
-      <h2>It is {new Date().toLocaleTimeString()}</h2>
-    </div>
+    <Router>
+      <NavigationBar />
+      <Routes>
+        <Route path="/home" element={<Content />} />
+        <Route path="/read" element={<h1>Read Component</h1>} />
+        <Route path="/create" element={<h1>Create Component</h1>} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
